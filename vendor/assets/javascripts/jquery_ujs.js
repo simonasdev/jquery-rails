@@ -213,6 +213,7 @@
       var href = rails.href(link),
         method = link.data('method'),
         target = link.attr('target'),
+        params = link.data('params'),
         csrfToken = rails.csrfToken(),
         csrfParam = rails.csrfParam(),
         form = $('<form method="post" action="' + href + '"></form>'),
@@ -220,6 +221,12 @@
 
       if (csrfParam !== undefined && csrfToken !== undefined && !rails.isCrossDomain(href)) {
         metadataInput += '<input name="' + csrfParam + '" value="' + csrfToken + '" type="hidden" />';
+      }
+
+      if (params) {
+        $.each(params, function (key, value) {
+          metadata_input += '<input name="' + key + '" value="' + value + '" type="hidden" />';
+        });
       }
 
       if (target) { form.attr('target', target); }
