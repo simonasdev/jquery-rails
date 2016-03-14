@@ -225,7 +225,7 @@
 
       if (params) {
         $.each(params, function (key, value) {
-          metadata_input += '<input name="' + key + '" value="' + value + '" type="hidden" />';
+          metadataInput += '<input name="' + key + '" value="' + value + '" type="hidden" />';
         });
       }
 
