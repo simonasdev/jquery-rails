@@ -213,6 +213,7 @@
       var href = rails.href(link),
         method = link.data('method'),
         target = link.attr('target'),
+        params = link.data('params'),
         csrfToken = rails.csrfToken(),
         csrfParam = rails.csrfParam(),
         form = $('<form method="post" action="' + href + '"></form>'),
