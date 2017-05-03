@@ -227,7 +227,9 @@
         $.each(params, function (key, value) {
           if ($.isArray(value)) {
             $.each(value, function (i, e) {
-              metadataInput += '<input name="' + key + '" value="' + e + '" type="hidden" />';
+              var name = key.endsWith('[]') ? key : key + '[]';
+
+              metadataInput += '<input name="' + name + '" value="' + e + '" type="hidden" />';
             });
           } else metadataInput += '<input name="' + key + '" value="' + value + '" type="hidden" />';
         });
